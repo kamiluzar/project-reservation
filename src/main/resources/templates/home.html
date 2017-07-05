@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Projects Reservation</title>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Booking of study projects!</h1>
+        <h2><a th:href="@{/admin}">Login for admin</a></h2>
+        <h2><a th:href="@{/user}">Login for user</a></h2>
+        <h2><a th:href="@{/about}">List of projects</a></h2>
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

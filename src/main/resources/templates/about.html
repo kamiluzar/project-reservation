@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/XSL/Transform" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>List of projects</h1>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Project theme</th>
+            <th>Reservation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="projects : ${result}">
+            <td class="tabco1">
+                <span class="bold" th:text="${projects.theme}"></span>
+            </td>
+            <td>
+                <form th:action="@{/delete-theme}" th:name="theme" method="POST">
+                    <button type="submit" name="theme" sec:authorize="hasRole('ROLE_ADMIN')" th:value="${projects.id}">Delete project</button>
+                </form>
+                <span th:if="${projects.assignedUser} == true">
+                    Reserved
+                    <form th:action="@{/cancel}" th:object="${assignForm}" th:name = "theme" method="POST">
+                        <button type="submit" name="theme" sec:authorize="hasRole('ROLE_ADMIN')" th:value="${projects.id}">Cancel reservation</button>
+                    </form>
+                </span>
+
+                <span th:if="${projects.assignedUser} == false">
+                    <form th:action="@{/assignUser}" th:object="${assignForm}" th:name = "theme" method="POST">
+                        <button type="submit" name="theme" sec:authorize="hasRole('ROLE_USER')" th:value="${projects.id}">Book now!</button>
+                    </form>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
