@@ -44,7 +44,6 @@ public class ProjectService {
     }
 
     public void cancel(Integer id) {
-        //int random = (int) (Math.random()*5)+3;
         String sql = "UPDATE project SET assigned_user="+0+" WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }

@@ -40,6 +40,4 @@ public class InitDbService {
 //        project1.setAssignedUser(false);
 //        projectRepository.save(project1);
 //    }
-
-
 }

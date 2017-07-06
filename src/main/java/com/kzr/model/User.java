@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Kamil on 2017-07-03.
@@ -16,21 +17,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    //@NotNull
+    @NotNull
     @Column(unique = true)
     private String username;
 
-    //@NotNull
+    @NotNull
     private String password;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    //@OneToOne(mappedBy = "assignedUser")
-    //private Project assignedProject;
-
     private boolean assignedProject;
-
 
     public Integer getId() {
         return id;
@@ -64,16 +61,10 @@ public class User {
         this.role = role;
     }
 
-//    public Project getAssignedProject() {
-//        return assignedProject;
-//    }
     public boolean getAssignedProject() {
         return assignedProject;
     }
 
-//    public void setAssignedProject(Project assignedProject) {
-//        this.assignedProject = assignedProject;
-//    }
     public void setAssignedProject(boolean assignedProject) {
         this.assignedProject = assignedProject;
     }

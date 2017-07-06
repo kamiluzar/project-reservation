@@ -1,9 +1,9 @@
 package com.kzr.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -11,8 +11,6 @@ import javax.validation.constraints.NotNull;
  */
 
 @Entity
-@Getter
-@Setter
 public class Project {
 
     @Id
@@ -21,9 +19,6 @@ public class Project {
 
     @NotNull
     private String theme;
-
-    //@OneToOne
-    //private User assignedUser;
 
     private boolean assignedUser;
 
@@ -43,16 +38,9 @@ public class Project {
         this.theme = theme;
     }
 
-//    public User getAssignedUser() {
-//        return assignedUser;
-//    }
     public boolean getAssignedUser() {
         return assignedUser;
     }
-
-//    public void setAssignedUser(User assignedUser) {
-//        this.assignedUser = assignedUser;
-//    }
 
     public void setAssignedUser(boolean assignedUser) {
          this.assignedUser = assignedUser;

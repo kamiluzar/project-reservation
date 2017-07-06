@@ -46,22 +46,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String user() {
-        return "/home";
-    }
-
-//    @GetMapping("/about")
-//    public String about() {
-//        return "/about";
-//    }
-//@RequestMapping(value = "/about", method = RequestMethod.GET)
-//public String about (Model model) throws SQLException, ClassNotFoundException {
-//    LinkedList result = projectService.readDB();
-//    model.addAttribute("result", result);
-//    return "about";
-//}
-
-
+    public String user() {return "/home";}
 
     @GetMapping("/login")
     public String login() {
@@ -83,26 +68,4 @@ public class UserController {
         userService.addUser(user);
         return "redirect:/";
     }
-
-
-
-
-
-
-
-
-
-//
-//
-//    @RequestMapping(value = "/add-project", method = RequestMethod.GET)
-//    public String getProjectPanel(Model model) {
-//        model.addAttribute("projectForm", new Project());
-//        return "add-project";
-//    }
-//
-//    @RequestMapping(value = "/add-project", method = RequestMethod.POST)
-//    public String addProject(@ModelAttribute(value="projectForm") @Valid Project project) {
-//        projectService.addProject(project);
-//        return "redirect:/";
-//    }
 }

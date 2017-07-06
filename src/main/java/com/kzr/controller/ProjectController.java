@@ -45,16 +45,16 @@ public class ProjectController {
         return "redirect:" + redirectUrl;
     }
 
-        @RequestMapping(value = "/assignUser", method = RequestMethod.POST)
-        public String assignUser(@RequestParam(value="theme", defaultValue = "") String id){
-            Integer idInt = Integer.parseInt(id);
-            projectService.assignUser(idInt);
-            String redirectUrl = "/about";
-            return "redirect:" + redirectUrl;
-        }
+    @RequestMapping(value = "/assignUser", method = RequestMethod.POST)
+    public String assignUser(@RequestParam(value="theme", defaultValue = "") String id){
+        Integer idInt = Integer.parseInt(id);
+        projectService.assignUser(idInt);
+        String redirectUrl = "/about";
+        return "redirect:" + redirectUrl;
+    }
 
-        @RequestMapping(value = "/cancel", method = RequestMethod.POST)
-        public String cancel(@RequestParam(value="theme", defaultValue = "") String id){
+    @RequestMapping(value = "/cancel", method = RequestMethod.POST)
+    public String cancel(@RequestParam(value="theme", defaultValue = "") String id){
         Integer idInt = Integer.parseInt(id);
         projectService.cancel(idInt);
         String redirectUrl = "/about";
@@ -75,5 +75,4 @@ public class ProjectController {
         String redirectUrl = "/about";
         return "redirect:" + redirectUrl;
     }
-
 }

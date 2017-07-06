@@ -25,8 +25,4 @@ public class UserService {
         user.setPassword(PasswordEncoderGenerator.generatePass(user.getPassword()));
         userRepository.save(user);
     }
-
-    //public boolean userExist(User user) {
-    //    return userRepository.findByUsername(user.getUsername()) != null;
-    //}
 }
