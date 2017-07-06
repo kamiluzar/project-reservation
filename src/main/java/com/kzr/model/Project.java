@@ -20,6 +20,9 @@ public class Project {
     @NotNull
     private String theme;
 
+    @NotNull
+    private String category;
+
     private boolean assignedUser;
 
     public Integer getId() {
@@ -45,4 +48,8 @@ public class Project {
     public void setAssignedUser(boolean assignedUser) {
          this.assignedUser = assignedUser;
      }
+
+    public String getCategory() {return category;}
+
+    public void setCategory(String category) {this.category = category;}
 }

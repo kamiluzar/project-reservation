@@ -17,6 +17,7 @@
         <thead>
         <tr>
             <th>Project theme</th>
+            <th>Category</th>
             <th>Reservation</th>
         </tr>
         </thead>
@@ -24,6 +25,9 @@
         <tr th:each="projects : ${result}">
             <td class="tabco1">
                 <span class="bold" th:text="${projects.theme}"></span>
+            </td>
+            <td class="tabcol">
+                <span class="bold" th:text="${projects.category}"></span>
             </td>
             <td>
                 <form th:action="@{/delete-theme}" th:name="theme" method="POST">
